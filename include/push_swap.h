@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:56:23 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/06/26 17:49:33 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:30:50 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_double_list {
 	struct s_double_list	*next;
 }	t_double_list;
 
+/*
+*	operations/
+*/
+void	pa(t_double_list **a_stack, t_double_list **b_stack);
+void	pb(t_double_list **a_stack, t_double_list **b_stack);
+void	sa(t_double_list **a_stack);
+void	sb(t_double_list **b_stack);
+void	ss(t_double_list **a_stack, t_double_list **b_stack);
 /*
 *	stack_utils.c
 */
