@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:56:23 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/01 16:30:50 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:47:54 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,19 @@ void	pb(t_double_list **a_stack, t_double_list **b_stack);
 void	sa(t_double_list **a_stack);
 void	sb(t_double_list **b_stack);
 void	ss(t_double_list **a_stack, t_double_list **b_stack);
+void	ra(t_double_list **a_stack);
+void	rb(t_double_list **b_stack);
+void	rr(t_double_list **a_stack, t_double_list **b_stack);
+void	rra(t_double_list **a_stack);
+void	rrb(t_double_list **b_stack);
+void	rrr(t_double_list **a_stack, t_double_list **b_stack);
 /*
 *	stack_utils.c
 */
 t_double_list	*stack_getlastnode(t_double_list *node);
 void			stack_addlast(t_double_list **stack, int value);
-
+/*
+*	radix.c
+*/
+void	radix_sort(t_double_list **a_stack);
 #endif

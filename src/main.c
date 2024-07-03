@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:51:12 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/06/26 17:50:58 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:59:35 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	stack_init(char **av, t_double_list **stack)
 int	main(int ac, char **av)
 {
 	t_double_list	*a_stack;
-	t_double_list	*b_stack;
 
 	a_stack = NULL;
-	b_stack = NULL;
 	if (--ac < 1 || (ac == 1 && !av[1][0]))
 		return (1);
 	if (ac == 1)
@@ -65,4 +63,26 @@ int	main(int ac, char **av)
 		av++;
 	stack_init(av, &a_stack);
 	return (0);
+}
+
+long	ft_atol(char *str)
+{
+	long	n;
+	int		sign;
+
+	n = 0;
+	sign = 1;
+	while (*str)
+	{
+		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+			str++;
+		if (*str == '+' || *str == '-')
+		{
+			if (*str == '-')
+				sign = -1;
+			str++;
+		}
+		/*TODO*/
+	}
+	return (n * sign);
 }
