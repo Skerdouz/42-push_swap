@@ -1,5 +1,6 @@
-## Executable
+## Push swap
 push_swap
+push_swap_visualizer
 
 ## Editor
 .vscode/*

@@ -21,8 +21,12 @@ SRC_FILES	=	main stack_utils radix utils
 OPERATION_DIR		=	$(SRC_DIR)operations/
 OPERATION_FILES		=	push rev_rotate rotate swap
 
+ALGORITHM_DIR		=	$(SRC_DIR)algorithms/
+ALGORITHM_FILES		=	quicksort radix
+
 SRCS 	=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 SRCS 	+=	$(addprefix $(OPERATION_DIR), $(addsuffix .c, $(OPERATION_FILES)))
+SRCS 	+=	$(addprefix $(ALGORITHM_DIR), $(addsuffix .c, $(ALGORITHM_FILES)))
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:56:23 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/05 11:52:13 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:56:15 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void			stack_init(char **av, t_double_list **stack);
 void			stack_addlast(t_double_list **stack, int value);
 int				stack_issorted(t_double_list **stack);
 int				stack_isduplicate(t_double_list *node, int value);
+/*
+*	stack_utils2.c
+*/
+int				stack_len(t_double_list **stack);
 /*
 *	radix.c
 */

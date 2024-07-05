@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:51:12 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/05 11:39:48 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:05:22 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	main(int ac, char **av)
 	stack_init(av, &a_stack);
 	if (!stack_issorted(&a_stack))
 	{
+		if (stack_len(&a_stack) < 10)
+			return (minisort(&a_stack), 0);
 		radix_sort(&a_stack);
 	}
 	return (0);

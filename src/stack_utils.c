@@ -6,29 +6,37 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 17:24:11 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/05 11:49:28 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:34:58 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_init(char **av, t_double_list **stack)
+int	stack_isduplicate(t_double_list *node, int value)
 {
-	long	value;
-
-	while(*av)
+	while (node)
 	{
-
-		if (!ft_strisnumber(*av))
-			errorhandler("stack_init:not digit");
-		value = ft_atol(*av);
-		if (value > INT_MAX || value < INT_MIN)
-			errorhandler("stack_init:int min/max");
-		if (stack_isduplicate(*stack, (int)value))
-			errorhandler("stack_init:duplicate");
-		stack_addlast(stack, (int)value);
-		av++;
+		// printf("node value: %d, value: %d\n", node->value, value);
+		if (node->value == value)
+			return (1);
+		node = node->next;
 	}
+	return (0);
+}
+
+int	stack_issorted(t_double_list **stack)
+{
+	long	cur_val;
+
+	cur_val = 0;
+	while (*stack)
+	{
+		if (cur_val > (*stack)->value)
+			return (0);
+		cur_val = (*stack)->value;
+		*stack = (*stack)->next;
+	}
+	return (1);
 }
 
 t_double_list	*stack_getlastnode(t_double_list *node)
@@ -67,31 +75,21 @@ void	stack_addlast(t_double_list **stack, int value)
 	}
 }
 
-int	stack_issorted(t_double_list **stack)
+void	stack_init(char **av, t_double_list **stack)
 {
-	long	cur_val;
+	long	value;
 
-	cur_val = 0;
-	while (*stack)
+	while(*av)
 	{
-		if (cur_val > (*stack)->value)
-			return (0);
-		cur_val = (*stack)->value;
-		*stack = (*stack)->next;
-	}
-	return (1);
-}
 
-int	stack_isduplicate(t_double_list *node, int value)
-{
-	if (node)
-	{
-		while (node)
-		{
-			if (node->value == value)
-				return (1);
-			node = node->next;
-		}
+		if (!ft_strisnumber(*av))
+			errorhandler("stack_init:not digit");
+		value = atol(*av);
+		if (value > INT_MAX || value < INT_MIN)
+			errorhandler("stack_init:int min/max");
+		if (stack_isduplicate(*stack, (int)value))
+			errorhandler("stack_init:duplicate");
+		stack_addlast(stack, (int)value);
+		av++;
 	}
-	return (0);
 }

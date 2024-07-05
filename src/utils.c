@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:50:02 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/05 11:51:53 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:58:51 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long	ft_atol(char *str)
 			else
 				return (LONG_MIN);
 		}
-		n *= 10 + (str[i] - '0');
+		n *= 10 + (str[i++] - '0');
 	}
 	return (n * sign);
 }
