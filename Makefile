@@ -16,9 +16,13 @@ BLUE = \033[34;49m
 # 	SRCS
 #
 SRC_DIR		=	src/
-FILES		=	main
+SRC_FILES	=	main stack_utils radix utils
 
-SRCS 	=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(FILES)))
+OPERATION_DIR		=	$(SRC_DIR)operations/
+OPERATION_FILES		=	push rev_rotate rotate swap
+
+SRCS 	=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+SRCS 	+=	$(addprefix $(OPERATION_DIR), $(addsuffix .c, $(OPERATION_FILES)))
 
 OBJS	=	$(SRCS:.c=.o)
 
