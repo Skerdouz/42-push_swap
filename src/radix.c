@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:06:54 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/03 14:48:19 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:25:02 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static void	sorter(t_double_list **a_stack, t_double_list **b_stack, int max_bit
 				pb(a_stack, b_stack);
 			++j;
 		}
-		while (stack_size(*b) > 0)
-			pa(a, b);
+		while (stack_size(*b_stack) > 0)
+			pa(a_stack, b_stack);
 		++i;
 	}
 }
@@ -69,10 +69,10 @@ void	radix_sort(t_double_list **a_stack)
 	int				size;
 
 	b_stack = NULL;
-	max = find_max(*a);
+	max = find_max(*a_stack);
 	size = stack_size(*a_stack);
 	max_bits = 0;
 	while (max >> max_bits != 0)
 		++max_bits;
-	sorter(a, &b, max_bits, size);
+	sorter(a_stack, &b_stack, max_bits, size);
 }

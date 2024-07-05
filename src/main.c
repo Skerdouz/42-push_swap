@@ -6,48 +6,18 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:51:12 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/04 17:56:57 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:39:48 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	errorhandler()
+void	errorhandler(char *str)
 {
 	/* TODO: free all the chained list */
 	ft_putstr_fd("Error", 2);
-}
-
-static int	isduplicate(t_double_list *node, int value)
-{
-	if (node)
-	{
-		while (node)
-		{
-			if (node->value == value)
-				return (1);
-			node = node->next;
-		}
-	}
-	return (0);
-}
-
-void	stack_init(char **av, t_double_list **stack)
-{
-	long	value;
-
-	while(*av)
-	{
-		if (!ft_isnumber(*av))
-			errorhandler();
-		value = ft_atol(*av);
-		if (value > INT_MAX || value < INT_MIN)
-			errorhandler();
-		if (isduplicate(*stack, (int)value))
-			errorhandler();
-		stack_addlast(stack, (int)value);
-		av++;
-	}
+	ft_putstr_fd(str, 2);
+	exit(EXIT_FAILURE);
 }
 
 int	main(int ac, char **av)
@@ -62,5 +32,9 @@ int	main(int ac, char **av)
 	else
 		av++;
 	stack_init(av, &a_stack);
+	if (!stack_issorted(&a_stack))
+	{
+		radix_sort(&a_stack);
+	}
 	return (0);
 }
