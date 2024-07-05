@@ -6,7 +6,7 @@
 /*   By: lbrahins <lbrahins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:51:12 by lbrahins          #+#    #+#             */
-/*   Updated: 2024/07/03 18:59:35 by lbrahins         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:56:57 by lbrahins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,4 @@ int	main(int ac, char **av)
 		av++;
 	stack_init(av, &a_stack);
 	return (0);
-}
-
-long	ft_atol(char *str)
-{
-	long	n;
-	int		sign;
-
-	n = 0;
-	sign = 1;
-	while (*str)
-	{
-		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-			str++;
-		if (*str == '+' || *str == '-')
-		{
-			if (*str == '-')
-				sign = -1;
-			str++;
-		}
-		/*TODO*/
-	}
-	return (n * sign);
 }
